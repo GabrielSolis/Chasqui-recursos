@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+ <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  		 
+     	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+      	<link rel="stylesheet" href="../../css/menuNavegacion.css" type="text/css" media="all" />
+        <script src="../../js/utilidades.js"></script>  
+        <script src="../../js/usuario/modificarUsuario.js"></script>  
+        <title>Modificar Usuario | Chasqui S.A. </title>
+    </head>
+    <body>
+    <div id="contenedor_carga">
+		<div id="carga"></div>
+	</div>
+  <header>
+       <nav class="navbar navbar-dark bg-primary">
+                <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.jsp" >Chasqui S.A.</a>
+                    <ul class="nav" > 
+                       <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../personal/registroPersonal.html">Registrar Personal </a>
+                                    <a class="dropdown-item" href="../personal/listadoPersonal.html">Listar Personal</a>
+                                </div>
+                            </li>
+                              <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Socio </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../socios/registroSocio.html">Registrar socio </a>
+                                    <a class="dropdown-item" href="../socios/listadoSocios.html">Listar socios </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidades </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../unidades/registroUnidad.html">Registrar unidad </a>
+                                    <a class="dropdown-item" href="../unidades/listadoUnidades.html">Listar unidades </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Puntos de control </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../puntosControl/registroPuntosControl.html">Registrar punto de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/activarPuntosControl.html">Activar puntos de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/listadoPuntosControl.html">Listar puntos de control </a>
+                                </div>
+                            </li> 
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rutas </a>
+                              <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="registroRutas.html">Registrar ruta </a>
+                                    <a class="dropdown-item" href="listadoRutas.html">Listar rutas </a>
+                                </div>
+                            </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiempos  </a>
+                                <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/registroTiemposEstablecidos.html">Registrar tiempo para ruta </a>
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/listadoTiemposEstablecidos.html">Listar tiempos de rutas </a>
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sesión </a>
+                              <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" id="cerrarSesion"href="">Cerrar sesión </a>
+                                  
+                                </div>
+                            </li>
+                         </ul>
+                </div>
+            </nav>
+</header>
+	<div class="container">
+		   <div class="row justify-content-center">
+        <div class="col-sm-8"> 
+            <h3 class="text-center pb-3 pt-3">Modificar  usuario </h3>
+            <form action="action">
+              
+               <div class="form-group"> 
+                   <label for="txtUsuario">Usuario</label>
+                   <input  type="text" class="form-control" id="txtUsuario" maxlength="16" value="" disabled> 
+               </div>
+                <div class="form-group"> 
+                   <label for="txtClaveActual">Contraseña Actual</label>
+                   <input type="password" id="txtClaveActual" maxlength="16" class="form-control" onKeypress=""  value="" placeholder="Ingrese contraseña"  aria-describedby="ayudaClave"> 
+               	   <small id="ayudaClave" class="form-text text-muted">Utilice Mayúsculas, minúsculas y carácteres alfanuméricos</small>
+               </div>
+               <div class="form-group"> 
+                   <label for="txtNuevaClave">Nueva Contraseña </label>
+                   <input type="password" id="txtNuevaClave" class="form-control" onKeypress=""  maxlength="16"value="" placeholder="Ingrese contraseña"  aria-describedby="ayudaClave"> 
+               	   <small id="ayudaClave" class="form-text text-muted">Utilice Mayúsculas, minúsculas y carácteres alfanuméricos</small>
+               </div>
+               <div class="form-group"> 
+                   <label for="txtNuevaClave1">Ingrese su nueva contraseña otra vez </label>
+                   <input type="password" id="txtNuevaClave1" maxlength="16" class="form-control" onKeypress=""  "value="" placeholder="Ingrese su contraseña otra vez"  aria-describedby="ayudaClave1"> 
+               	   <small id="ayudaClave1" class="form-text text-muted">Utilice Mayúsculas, minúsculas y carácteres alfanuméricos</small>
+               </div>
+               
+                <div class="form-group"> 
+                    
+                   <input type="submit" id="btnModificar" class="btn btn-primary form-control mt-3" value="Modificar Clave"> 
+                </div>
+           </form>
+        </div>
+     
+    </div>
+     <!--  Modal de respuestas -->
+   	  <div class="modal fade" id="modalRespuesta">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloRespuesta"></h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="contenidoRespuesta"></p>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						data-dismiss="modal">Aceptar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  		 
+     	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+      	<link rel="stylesheet" href="../../css/menuNavegacion.css" type="text/css" media="all" />
+        <script src="../../js/utilidades.js"></script>  
+        <script src="../../js/personal/modificarPersonal.js"></script>  
+        <title>Modificar Personal | Chasqui S.A. </title>
+    </head>
+<body>
+	<div id="contenedor_carga">
+		<div id="carga"></div>
+	</div>
+	 <header>
+           <nav class="navbar navbar-dark bg-primary">
+                <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.jsp" >Chasqui S.A.</a>
+                    <ul class="nav" > 
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="registroPersonal.html">Registrar Personal </a>
+                                    <a class="dropdown-item" href="listadoPersonal.html">Listar Personal</a>
+                                </div>
+                            </li>
+                              <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Socios </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../socios/registroSocio.html">Registrar socio </a>
+                                    <a class="dropdown-item" href="../socios/listadoSocios.html">Listar socios </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidades </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../unidades/registroUnidad.html">Registrar unidad </a>
+                                    <a class="dropdown-item" href="../unidades/listadoUnidades.html">Listar unidades </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Puntos de control </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../puntosControl/registroPuntosControl.html">Registrar punto de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/activarPuntosControl.html">Activar puntos de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/listadoPuntosControl.html">Listar puntos de control </a>
+                                </div>
+                            </li>
+                        	<li class="nav-item dropdown">
+                         	  <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rutas </a>
+                            	<div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../rutas/registroRutas.html">Registrar ruta </a>
+                                    <a class="dropdown-item" href="../rutas/listadoRutas.html">Listar rutas </a>
+                                </div>
+                            </li>
+                        <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiempos  </a>
+                                <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/registroTiemposEstablecidos.html">Registrar tiempo para ruta </a>
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/listadoTiemposEstablecidos.html">Listar tiempos de rutas </a>
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sesión </a>
+                              <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" id="cerrarSesion"href="">Cerrar sesión </a>
+                                  
+                                </div>
+                            </li>
+                         </ul>
+                </div>
+            </nav>
+	</header>
+	<div class="container">
+		  <!-- Inicio de formulario -->
+    <div class="row justify-content-center">
+        <div class="col-sm-8"> 
+            <h3 class="text-center pb-3 pt-3">Registro de personal </h3>
+            <form action="action">
+               <div class="form-group"> 
+                   <label for="txtNombres">Nombres </label>
+                   <input type="text" id="txtNombres" maxlength="32" onKeypress="return validaSoloTexto(event)"class="form-control" value="" placeholder="Ingrese nombres del personal" > 
+               		
+               </div>
+               
+               <div class="form-group"> 
+                   <label for="txtApellidoP">Apellido Paterno </label>
+                   <input type="text" id="txtApellidoP" maxlength="32" onKeypress="return validaSoloTexto(event)" class="form-control" value="" placeholder="Ingrese apellido paterno del socio" > 
+               </div>
+               <div class="form-group"> 
+                   <label for="txtApellidoM">Apellido Materno </label>
+                   <input  type="text" class="form-control" maxlength="32" id="txtApellidoM" onKeypress="return validaSoloTexto(event)" value="" placeholder="Ingrese apellido materno del socio" > 
+               </div>
+               <div class="form-group"> 
+                   <label for="txtDNI">DNI </label>
+                   <input type="text" id="txtDNI"class="form-control" onKeypress="return validaSoloNumero(event)" pattern=".{8,8}" maxlength="8"value="" placeholder="Ingrese DNI del socio"  aria-describedby="ayudaDNI"> 
+               	   <small id="ayudaDNI" class="form-text text-muted">El campo debe tener 8 digitos: Ejm:73512019</small>
+               </div>
+               <div class="form-group"> 
+                   <label for="txtFechaNacimiento">Fecha de Nacimiento </label>
+                   <input  type="date" id="txtFechaNacimiento"class="form-control" > 
+               </div>
+               <div class="form-group">
+                 	<label for="rdbSexo">Sexo: </label>
+                </div>
+               <div class="form-group">
+               		<label class="radio-inline"><input checked="checked" id="rdbSexoM" type="radio" name="rdbSexo" value="M">  Masculino </label>
+					<label class="radio-inline ml-2"><input  id="rdbSexoF"  type="radio" name="rdbSexo" value="F">  Femenino</label>
+               </div>
+               <div class="form-group"> 
+                   <label for="txtFechaRegistro">Fecha de Registro </label>
+                   <input  type="date" id="txtFechaRegistro"class="form-control" > 
+               </div>
+         
+               <div class="form-group"> 
+                   <label for="txtDireccion">Dirección </label>
+                   <input  type="text" maxlength="76" id="txtDireccion"class="form-control" value="" placeholder="Ingrese direccion del socio" > 
+               </div>
+                <div class="form-group">
+						<label for="filtrar">Estado Civil</label>
+					    <select class="form-control" id="cmbEstadoCivil">
+					      <option value="Casado">Casado</option>
+					      <option value="Soltero">Soltero</option>
+					      <option value="Viudo">Viudo</option>		
+					       <option value="Divorciado">Divorciado</option>		   
+					    </select>
+					</div>
+               <div class="form-group"> 
+                   <label for="cmbCargo">Cargo</label>
+                   <select class="form-control" id="cmbCargo">
+                   	 <option value="controlador">Controlador</option>
+                   	 <option value="secretaria">Secretaria </option>
+                   </select>
+                   
+               </div>
+               <div class="form-group"> 
+                   <label for="txtCorreo">Correo </label>
+                   <input type="email"  maxlength="76" id="txtCorreo" class="form-control" value="" placeholder="Ingrese correo del socio" aria-describedby="ayudaCorreo"  > 
+                   <small id="ayudaCorreo" class="form-text text-muted">Ejemplos: usuario@hotmail.com / usuario@gmail.com</small>
+               </div>
+               <div class="form-group"> 
+                   <label for="txtCelular">Celular </label>
+                   <input  type="text" id="txtCelular"class="form-control"  onKeypress="return validaSoloNumero(event)" maxlength="9" value="" placeholder="Ingrese celular del socio" pattern=".{9}" aria-describedby="ayudaCelular"> 
+               	   <small id="ayudaCelular" class="form-text text-muted">El campo debe tener 9 digitos: Ejm:998812341 / 074231231</small>
+               </div>
+                   <input type="submit" id="btnModificar" class="btn btn-primary form-control mt-3" value="Modificar Personal"> 
+                </form>
+           
+                </div>
+        </div>
+	</div>
+	<div class="modal fade" id="modalRespuesta">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="tituloRespuesta"></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p id="mensajeRespuesta"></p>
+		      </div>
+		      <div class="modal-footer">
+		      
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+	  
+	  <!--  Modal de exito -->
+	 	<div class="modal fade" id="modalExito">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Modificar datos de personal</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>¡Personal modficiado exitosamente!</p>
+		      </div>
+		      <div class="modal-footer">
+		      
+		        <button type="button" class="btn btn-secondary" id="btnExito">Aceptar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+</body>
+</html>

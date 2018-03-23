@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  		    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+      	<link rel="stylesheet" href="../../css/menuNavegacion.css" type="text/css" media="all" />
+         <script src="../../js/utilidades.js"></script> 
+         <script src="../../js/unidades/registrarUnidades.js"></script>
+         <script src="../../js/unidades/modificarUnidades.js"></script>  
+        <title>Modificar Unidad | Chasqui S.A. </title>
+</head>
+<body>
+<header>
+            <nav class="navbar navbar-dark bg-primary">
+                <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.jsp" >Chasqui S.A.</a>
+                    <ul class="nav" > 
+                          <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../personal/registroPersonal.html">Registrar Personal </a>
+                                    <a class="dropdown-item" href="../personal/listadoPersonal.html">Listar Personal</a>
+                                </div>
+                            </li>
+                              <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Socio </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../socios/registroSocio.html">Registrar socio </a>
+                                    <a class="dropdown-item" href="../socios/listadoSocios.html">Listar socios </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidades </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="registroUnidad.html">Registrar unidad </a>
+                                    <a class="dropdown-item" href="listadoUnidades.html">Listar unidades </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Puntos de control </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../puntosControl/registroPuntosControl.html">Registrar punto de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/activarPuntosControl.html">Activar puntos de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/listadoPuntosControl.html">Listar puntos de control </a>
+                                </div>
+                            </li>
+                           <li class="nav-item dropdown">
+                         	  <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rutas </a>
+                            	<div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="#">Registrar ruta </a>
+                                    <a class="dropdown-item" href="#">Modificar ruta </a>
+                                    <a class="dropdown-item" href="#">Listar rutas </a>
+                                </div>
+                            </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiempos  </a>
+                                <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/registroTiemposEstablecidos.html">Registrar tiempo para ruta </a>
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/listadoTiemposEstablecidos.html">Listar tiempos de rutas </a>
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sesión </a>
+                              <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" id="cerrarSesion"href="">Cerrar sesión </a>
+                                  
+                                </div>
+                            </li>
+                         </ul>
+                </div>
+            </nav>
+</header>
+<!--  Modal de respuestas -->
+   	  <div class="modal fade" id="modalRespuesta">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloRespuesta"></h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="contenidoRespuesta"></p>
+					<p id="contenidoRespuesta02"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btnExito"
+						data-dismiss="modal">Aceptar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+ <!-- Inicio de formulario -->
+<div class="container color1 center-block">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-lg-6 ">
+            <form>
+                <h3 class="text-center pb-3 pt-3">Modificar unidad </h3>
+                <div class="form-group">
+                  
+                   <div class="form-group">
+				 	<div > 
+				 		<label for="buscar">Buscar socio por apellido</label>
+				 		<input type="text" id="buscar" name="txtApellido" placeholder="Ingrese apellido del socio"class="form-control"> 
+				 	</div>
+				 	<div>
+				 		
+				 	 <input class=" form-control btn btn-primary"type="button" id="btnBuscar" value="Buscar" >
+				 		
+				 	</div>
+				 </div>
+				 <label for="exampleFormControlSelect1">Socio </label>
+                  <select class="form-control" id="cmbSocio" >
+                    <option value="S">Seleccione Socio</option>
+                    
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Placa </label>
+                  <input type="text" class="form-control" id="txtPlaca" placeholder="Ingrese la placa del vehiculo" pattern=".{7,7}" maxlength="7" style="text-transform:uppercase;">
+                  <small id="ayudaPlaca" class="form-text text-muted">El campo debe tener 7 digitos: Ejm:MPL-123</small>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Marca </label>
+                  <input type="text" class="form-control" id="txtMarca" placeholder="Ingrese la marca del vehiculo">
+                  <small id="ayudaMarca" class="form-text text-muted">Ejm: Toyota</small>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Modelo </label>
+                  <input type="text" class="form-control" id="txtModelo" placeholder="Ingrese el modelo del vehiculo">
+                  <small id="ayudaModelo" class="form-text text-muted">Ejm: Toyota - Yaris </small>
+                </div>
+                <div class="form-group"> 
+                   <label for="txtFechaRegistro">Fecha de Registro </label>
+                   <input  type="date" id="txtFechaRegistro"class="form-control" > 
+               </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Color </label>
+                  <input type="text" class="form-control" id="txtColor" placeholder="Ingrese el color del vehiculo">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Capacidad </label>
+                  <input type="text" class="form-control" id="txtCapacidad" onKeypress="return validaSoloNumero(event)" placeholder="Numero de asientos del vehiculo" pattern=".{2,2}" maxlength="2"> 
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Año de fabricación </label>
+                  <input type="text" class="form-control" id="txtAnioFabricacion" onKeypress="return validaSoloNumero(event)" placeholder="Ingrese el año de fabricación del vehiculo" pattern=".{4,4}" maxlength="4">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Estado </label>
+                  <select class="form-control" id="cmbEstado">
+                    <option value="A">Unidad - Activo</option>
+                    <option value="Y">Unidad -Apoyo</option>
+                    <option value="I">Unidad-Inactivo</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="btnModificarUnidad" class="btn btn-primary form-control mt-3" value="Modificar Unidad" />
+                </div>
+                
+            </form>  
+            
+        </div>
+    </div>
+</div>
+
+
+<footer class="text-center"> 
+    <p>Shasqui S.A.| Empresa de transporte público </p>
+</footer>
+</body>
+</html>

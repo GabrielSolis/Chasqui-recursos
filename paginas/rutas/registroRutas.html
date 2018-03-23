@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  		  	<script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+      	<link rel="stylesheet" href="../../css/menuNavegacion.css" type="text/css" media="all" />
+      	<link rel="stylesheet" href="../../css/mapa.css" type="text/css" media="all" />
+      	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      	<link rel="stylesheet" href="../../css/menuRutas.css" type="text/css" media="all" />
+        <script src="../../js/utilidades.js"></script>  
+        <script src="../../js/rutas/rutas.js"></script>  
+        <title>Registro de Rutas | Chasqui S.A. </title>
+    </head>
+    <body>
+     <div id="contenedor_carga">
+		<div id="carga"></div>
+	</div>
+    <header>
+              <nav class="navbar navbar-dark bg-primary">
+                <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.jsp" >Chasqui S.A.</a>
+                    <ul class="nav" > 
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../personal/registroPersonal.html">Registrar Personal </a>
+                                    <a class="dropdown-item" href="../personal/listadoPersonal.html">Listar Personal</a>
+                                </div>
+                            </li>
+                              <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Socios </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../socios/registroSocio.html">Registrar socio </a>
+                                    <a class="dropdown-item" href="../socios/listadoSocios.html">Listar socios </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidades </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../unidades/registroUnidad.html">Registrar unidad </a>
+                                    <a class="dropdown-item" href="../unidades/listadoUnidades.html">Listar unidades </a>
+                                </div>
+                            </li>
+                        
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Puntos de control </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../puntosControl/registroPuntosControl.html">Registrar punto de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/activarPuntosControl.html">Activar puntos de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/listadoPuntosControl.html">Listar puntos de control </a>
+                                </div>
+                            </li> 
+                            <li class="nav-item dropdown">
+                         	  <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rutas </a>
+                            	<div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="registroRutas.html">Registrar ruta </a>
+                                    <a class="dropdown-item" href="listadoRutas.html">Listar rutas </a>
+                                </div>
+                            </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiempos  </a>
+                                <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/registroTiemposEstablecidos.html">Registrar tiempo para ruta </a>
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/listadoTiemposEstablecidos.html">Listar tiempos de rutas </a>
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sesión </a>
+                              <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                  <a class="dropdown-item" id="cerrarSesion"href="">Cerrar sesión </a>
+                                  
+                                </div>
+                            </li>
+                         </ul>
+                </div>
+            </nav>
+</header>
+
+	<!-- 
+   	<div id="floating-panel">
+   		  <label> Punto de referencia: </label>
+      	 <input id="address" type="text" value="" placeholder="Antisuyo 225 chiclayo">
+     	 <input id="submit" type="button" value="Buscar">
+   </div> -->
+   <!--  Modal para agregar Letra Ruta-->
+	
+	<!--  -->
+	 <!--  Modal para agregar calle -->
+   	  <div class="modal fade"  id="modalAgregarCalle">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloModificar">Agregar calle a ruta</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="preguntaAgregarCalle"></p>
+					<p id="nombreRuta"></p>
+					<span>Direccion de referencia: </span><span id="direccionReferencia"></span>
+					
+					<form>
+						<div class="form-group">
+							<label for="txtCalle">Nombre de la calle: </label>
+							<input type="text"	id="txtCalle" class="form-control" value="" placeholder="Ingrese nombre de la calle">
+						</div>
+						<div class="form-group">
+							<label for="txtOrden">Número de orden de la calle: </label>
+							<input type="number"	id="txtOrden" class="form-control" value="">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="btnAgregarCalle" type="button" class="btn btn-primary">Agregar ruta</button>
+					<button data-dismiss="modal" type="button" class="btn btn-secondary"
+						>Cancelar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  Modal para modificar calle -->
+   	  <div class="modal fade"  id="modalModificarCalle">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloModificar">Modificar calle de ruta</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="preguntaModificarCalle"></p>
+					<p id="nombreRutaModificar"></p>
+					<form>
+						<div class="form-group">
+							<label for="txtModificarCalle">Nombre de la calle: </label>
+							<input type="text"	id="txtModificarCalle" class="form-control" value="" placeholder="Ingrese nombre de la calle">
+						</div>
+						<div class="form-group">
+							<label for="txtModificarOrden">Número de orden de la calle: </label>
+							<input type="number"	id="txtModificarOrden" class="form-control" value="">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="btnModificarCalle" type="button" class="btn btn-primary">Modficar ruta</button>
+					<button data-dismiss="modal" type="button" class="btn btn-secondary"
+						>Cancelar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+   	  <!--  Modal para agregar rutas -->
+   	    <div class="modal fade" id="modalAgregarRuta">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloModificar">Agregar ruta</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="txtRuta">Letra de la Ruta: </label>
+								<label for="txtLetra">Letra de la nueva ruta: </label>
+								<input type="text"  class="form-control" id="txtLetra" maxlength="1" placeholder="Ejemplo: Z" onKeypress="return validaSoloTexto(event)" pattern=".{1,1}" >
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="btnModalAgregarRuta" type="button" class="btn btn-primary">Agregar Ruta</button>
+					<button data-dismiss="modal" type="button" class="btn btn-secondary"
+						>Cancelar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+   	  <!--  -->
+	  <!--  Modal para eliminar -->
+   	  <div class="modal fade" id="modalEliminar">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Eliminar calle de ruta</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+			</div>
+				<div class="modal-body">
+					<p>¿Desea eliminar la calle?</p>
+					<span>Calle: </span><span id="calleEliminar"></span>
+				</div>
+				<div class="modal-footer">
+					<button id="btnEliminarCalle" type="button" class="btn btn-primary">Eliminar</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancelar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+   	  
+   	  <!--  -->
+   	    <!--  Modal de respuestas -->
+   	  <div class="modal fade" id="modalRespuesta">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloRespuesta"></h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="contenidoRespuesta"></p>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						data-dismiss="modal">Aceptar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+   	  
+   	  <!--Menu de rutas  -->
+   	  <div>
+   	
+   	   <div id="mostrar-nav-rutas">
+   	   	 <i class="fas fa-bars"></i>
+   	   </div>
+   	   <nav class="nav-rutas">
+   	  	  	<ul class="opcionesRutas" id="ulRutas">
+			<li>
+			  	<div> <label> Punto de referencia: </label> 
+				<form class="form-inline">
+					<input id="address" type="text" value="" class="form-control" placeholder="Antisuyo 225 chiclayo"> 
+					<input id="submit" class="btn btn-success ml-3" type="button" value="Buscar">
+				</form>
+				</div>
+			</li>
+			<li><button id="btnAgregarRuta" class="form-control btn btn-success"><i class='mr-2 fas fa-plus-circle'></i>Agregar Ruta</button></li>
+		
+		</ul>
+   	  </nav>
+   	  	  
+   	  </div>
+   	  	<div id="map"></div>
+		
+   	
+   
+  
+	
+
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLCCyTnMmExDBB0gCyx8gf_I7Av5dbZEA&callback=initMap">
+    </script>
+<footer class="text-center"> 
+    <p>Shasqui S.A. | Empresa de transporte público </p>
+ 
+</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+.opcionesRutas{
+	font-family:'Raleway',sans-serif;
+	list-style:none;
+	line-height:42px;
+	margin: 2em auto;
+	/* outline: 1px solid red; */ 
+	padding-left:0;
+	width: 20em;
+	background:#223131;
+}
+
+.opcionesRutas label{
+	cursor:pointer;
+	font-size:15px;
+	color:#ddd;
+	text-decoration:none;
+	text-transform:uppercase;
+	display:inline-block;
+	width:80%;
+	/* outline: 1px solid white; */
+	padding-left:5px;
+}
+
+.opcionesRutas li{
+	/* border-left:3px solid rgba(255,255,255,.2); */
+	margin-bottom:5px;
+	margin-right:5px;
+	margin-left:5px;
+	color:#ddd;
+}
+
+.opcionesRutas li.rutaOp{
+	/* border-left:3px solid rgba(255,255,255,.2); */
+	box-shadow:3px 0 rgba(255,255,255,.2) inset;
+	margin-bottom:5px;
+	padding-left:10px;
+	
+	transition:  all .4s;	/* outline: 1px solid green; */
+}
+
+.opcionesRutas li.rutaOp:hover{
+	box-shadow:20em 0 rgba(255,255,255,.2) inset;
+}
+
+.opcionesRutas li span{
+	margin-left:2px;
+	display:inline-block;
+	width:10%;
+	height:15px;
+	/* background:green; */
+	
+	/*width:5px;
+	outline: 1px solid green;*/
+}
+
+
+/*Posicion del menu*/
+.nav-rutas {
+	position:absolute;
+	left:-20.5em;
+	z-index:20;
+	background:rgba(0,0,0,.8);
+	transition: all .3s;
+	height:70%;
+	padding-right:2px;
+}
+
+#mostrar-nav-rutas{
+	text-align:center;
+	cursor:pointer;
+	position:absolute;
+	/*color:white;*/
+	background:rgba(255,255,255,0.8);
+	left:0;
+	width:30px;
+	height:30px
+	top:10px;
+	z-index:30;
+}
+.mostrar{
+	left:0;
+}
+
+.opcionesMapaDefinidos{
+	right:40px;
+}
+
+.seleccionado{
+	background:rgba(255,255,255,.2);
+}

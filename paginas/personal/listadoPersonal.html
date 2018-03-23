@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+      	<link rel="stylesheet" href="../../css/menuNavegacion.css" type="text/css" media="all" />
+     	<script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+       <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+           <script src="../../js/utilidades.js"></script>  
+        <script src="../../js/personal/listadoPersonal.js"></script>  
+          <script src="../../js/usuario/registroUsuario.js"></script> 
+        <title>Listado de Personal | Chasqui S.A. </title>
+    </head>
+<body>
+ <div id="contenedor_carga">
+		<div id="carga"></div>
+</div>
+<header>
+              <nav class="navbar navbar-dark bg-primary">
+                <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.jsp" >Chasqui S.A.</a>
+                    <ul class="nav" > 
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="registroPersonal.html">Registrar Personal </a>
+                                    <a class="dropdown-item" href="#">Listar Personal</a>
+                                </div>
+                            </li>
+                              <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Socios </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../socios/registroSocio.html">Registrar socio </a>
+                                    <a class="dropdown-item" href="../socios/listadoSocios.html">Listar socios </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unidades </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../unidades/registroUnidad.html">Registrar unidad </a>
+                                    <a class="dropdown-item" href="../unidades/listadoUnidades.html">Listar unidades </a>
+                                </div>
+                            </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Puntos de control </a>
+                            <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../puntosControl/registroPuntosControl.html">Registrar punto de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/activarPuntosControl.html">Activar puntos de control </a>
+                                    <a class="dropdown-item" href="../puntosControl/listadoPuntosControl.html">Listar puntos de control </a>
+                                </div>
+                            </li>
+                           <li class="nav-item dropdown">
+                         	  <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rutas </a>
+                            	<div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <a class="dropdown-item" href="../rutas/registroRutas.html">Registrar ruta </a>
+                                    <a class="dropdown-item" href="../rutas/listadoRutas.html">Listar rutas </a>
+                                </div>
+                            </li>
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiempos  </a>
+                                <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/registroTiemposEstablecidos.html">Registrar tiempo para ruta </a>
+                                      <a class="dropdown-item" href="../tiemposEstablecidos/listadoTiemposEstablecidos.html">Listar tiempos de rutas </a>
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle opPrincipalMenu"  href="#" id="opAdministrarPersonal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sesión </a>
+                              <div class="dropdown-menu" aria-labelledby="opAdministrarPersonal"> 
+                                    <button class="dropdown-item" id="cerrarSesion" >Cerrar sesión </button>
+
+                                </div>
+                            </li>
+
+                         </ul>
+                </div>
+            </nav>
+</header>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-sm-12">
+			<h3 class="text-center mt-3 mb-3">Listado de Personal</h3>
+			<form>
+				<div class="row form-group">
+					<div class="col-sm-10">
+						<label for="filtrar">Filtro de Personal</label>
+					    <select class="form-control" id="filtrar">
+					      <option value="A">Personal Activo</option>
+					      <option value="R">Personal Retirado</option>
+					      <option value="">Todos</option>				   
+					    </select>
+					</div>
+					
+					<div class="col-sm-1">
+						<label for="imprimir">Imprimir</label>
+						<button  id="btnImprimir" class="btn btn-info mr-2"data-toggle="tooltip" data-placement="top" title="Imprimir datos">
+					<i class='fas fa-print'></i></button>
+					</div>
+					
+				   				  
+				 </div>
+				 <div class="row form-group">
+				 	<div class="col-sm-10"> 
+				 		<label for="buscar">Buscar personal por apellido</label>
+				 		<input type="text" id="buscar" name="txtApellido" placeholder="Ingrese apellido del personal"class="form-control"> 
+				 	</div>
+				 	<div class="col-sm-2">
+				 		<label class="fade">Boton buscar</label>
+				 	 <input class=" form-control btn btn-primary"type="button" id="btnListar" value="Listar" >
+				 		
+				 	</div>
+				 </div>
+				
+			</form>
+			
+			<table class="table">
+				  <thead>
+				    <tr>
+				      <th>#</th>
+				      <th>Nombres y apellidos</th>
+				      <th class="">DNI</th>
+				      <th>Cargo</th>
+				      <th>Estado</th>
+				      <th class="">Opciones</th>
+				    </tr>
+				  </thead>
+				  <tbody id="cuerpoTablaPersonal">
+				    
+				  </tbody>
+				</table>
+				
+		</div>
+	</div>
+</div>
+<!--  Modales de baja-->
+	<div class="modal fade" id="modalBaja">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Dar de baja al personal</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p id="mensajeBaja"></p>
+		      </div>
+		      <div class="modal-footer">
+		      	 <button type="button" class="btn btn-secondary" id="btnModalBaja">Dar de baja</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+
+	  <!-- Modal de alta  -->
+	  
+	  	<div class="modal fade" id="modalAlta">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Dar de alta al personal</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p id="mensajeAlta"></p>
+		      </div>
+		      <div class="modal-footer">
+		      	 <button type="button" class="btn btn-secondary" id="btnModalAlta">Dar de Alta</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+<!--  Modal de socio -->
+<div class="modal fade" id="modalPersonal">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Datos del personal</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        	<p><label>Nombres y apellidos: <span id="txtNombresCompletos"></span> </label></p>
+		        	<p><label>DNI: <span id="txtDNI"> </span></label></p>
+		        	<p><label>Fecha de nacimiento: <span id="txtFechaNacimiento"></span></label></p>
+		        	<p><label>Sexo: <span id="txtSexo"></span></label></p>
+		        	<label>Dirección: <span id="txtDireccion"></span></label>
+		        	<p><label>Estado civil: <span id="txtEstadoCivil"> </span></label></p>
+		        	<p><label>Estado: <span id="txtEstado"></span></label></p>
+		        	<p><label>Fecha de Registro: <span id="txtFechaRegistro"></span></label></p>
+		        	<p><label>Fecha de Retiro: <span id="txtFechaRetiro"></span></label></p>
+		        	<p><label>Celular: <span id="txtCelular"></span></label></p>
+		        	<label>Correo: <span id="txtCorreo"></span></label>
+					<label>Cargo: <span id="txtCargo"></span></label>
+		      </div>
+		      <div class="modal-footer">
+		      	<button class="btn btn-primary" id="btnImprimirPersonal">Imprimir</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+	  <!--  -->
+	  <!-- Modal de respuestas -->
+	  <div class="modal fade" id="modalListado">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Datos del socio</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		         <p>No hay personal <span id="tipoPersonal"></span> para listar</p>
+		      </div>
+		      <div class="modal-footer">
+		      
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+	  <!--  -->
+	   <div class="modal fade" id="modalUsuario">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Usuario</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		         <p>Usuario: <span id="usuario"></span></p>
+		         <p>Constraseña: <span id="clave"></span></p>
+		      </div>
+		      <div class="modal-footer">
+		      
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+	  <!--  -->
+	  
+<footer class="text-center"> 
+    <p>Shasqui S.A. | Empresa de transporte público </p>
+</footer>
+</body>
+</html>
