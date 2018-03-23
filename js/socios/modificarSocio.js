@@ -10,7 +10,7 @@ function validarCampos(socio){
 function listarSocio(callback){
 	$.ajax({
 		beforeSend: function(){mostrarLoader();},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios/'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
 		headers:{
 			"Authorization": "Bearer  " + token
 		}
@@ -25,7 +25,7 @@ function modificarSocio(socio,callback){
 	$.ajax({
 		beforeSend: mostrarLoader(),
 		method:'PUT',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios/',//'http://localhost:9000/socios/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/',//'http://localhost:9000/socios/',
 		contentType: "application/json; charset=utf-8",
 		data: JSON.stringify(socio),
 		statusCode:{

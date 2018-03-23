@@ -5,7 +5,7 @@ function darBajaSocio(socio,callback){
 		beforeSend:mostrarLoader(),
 		method:'delete',
 		data:JSON.stringify(socio),
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios/',//'http://localhost:9000/socios/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/',//'http://localhost:9000/socios/',
 		contentType: "application/json; charset=utf-8",
 		
 		headers: {
@@ -29,7 +29,7 @@ function listarSocios(estado,apellido,callback){
 		beforeSend:mostrarLoader(),
 		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
 		data:{estado:estado,apellido:apellido},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios/?estado='+estado+'&apellido='+apellido,//'http://localhost:9000/socios/?estado='+estado+'&apellido='+apellido,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/?estado='+estado+'&apellido='+apellido,//'http://localhost:9000/socios/?estado='+estado+'&apellido='+apellido,
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -47,7 +47,7 @@ function listarSocio(callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
 		beforeSend: mostrarLoader(),
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
 		headers:{
 			"Authorization": "Bearer " + token
 		}

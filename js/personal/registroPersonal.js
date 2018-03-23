@@ -5,7 +5,7 @@ function registrarPersonal(personal,callback){
 		beforeSend:mostrarLoader(),
 		method:'POST',
 		//url:'http://localhost:9000/personal/',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/',
 		data: JSON.stringify(personal),
 		contentType: "application/json; charset=utf-8",
 		processData:false,

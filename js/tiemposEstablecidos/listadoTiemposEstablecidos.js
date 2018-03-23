@@ -3,7 +3,7 @@ var listaRutas = new Array();
 function listarRutas(callback){
 	$.ajax({
 		method:'GET',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -17,7 +17,7 @@ function listarTiempos(codigoRuta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'GET',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/'+codigoRuta,//'http://localhost:9000/tiempoEstablecido/'+codigoRuta,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/'+codigoRuta,//'http://localhost:9000/tiempoEstablecido/'+codigoRuta,
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",

@@ -4,7 +4,7 @@ function darBajaUnidad(registroUnidad,callback){
 	$.ajax({
 		method:'delete',
 		data:JSON.stringify(registroUnidad),
-		url: 'http://chasqui-gateway.herokuapp.com/micro-client/unidades/',//'http://localhost:9000/unidades/',
+		url: 'https://chasqui-gateway.herokuapp.com/micro-client/unidades/',//'http://localhost:9000/unidades/',
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -61,7 +61,7 @@ function llenarCamposModal(unidades){
 function listarRUnidad(callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/unidades/'+localStorage.getItem("idRegistroUnidad"),//'http://localhost:9000/unidades/'+localStorage.getItem("idRegistroUnidad"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/unidades/'+localStorage.getItem("idRegistroUnidad"),//'http://localhost:9000/unidades/'+localStorage.getItem("idRegistroUnidad"),
 		headers:{
 			"Authorization": "Bearer " + token
 		}
@@ -77,7 +77,7 @@ function listarUnidadesSocio(estado,callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
 		data:{estado:estado},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/registroUnidades/+localStorage.getItem("idSocio")'+'?/estado='+estado, //'http://localhost:9000/registroUnidades/'+localStorage.getItem("idSocio")+'?/estado='+estado,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/registroUnidades/+localStorage.getItem("idSocio")'+'?/estado='+estado, //'http://localhost:9000/registroUnidades/'+localStorage.getItem("idSocio")+'?/estado='+estado,
 		headers:{
 			"Authorization": "Bearer " + token
 		}
@@ -95,7 +95,7 @@ function listarRegistroUnidades(estado,apellido,callback){
 	$.ajax({
 		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
 		data:{estado:estado,apellido:apellido},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/unidades/?estado='+estado+'&apellido='+apellido,//'http://localhost:9000/unidades/?estado='+estado+'&apellido='+apellido,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/unidades/?estado='+estado+'&apellido='+apellido,//'http://localhost:9000/unidades/?estado='+estado+'&apellido='+apellido,
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -128,7 +128,7 @@ function listarSocios(estado,apellido,callback){
 	$.ajax({
 		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
 		data:{estado:estado,apellido:apellido},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios/?estado='+estado+'&apellido='+apellido,//'http://localhost:9000/socios/?estado='+estado+'&apellido='+apellido,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/?estado='+estado+'&apellido='+apellido,//'http://localhost:9000/socios/?estado='+estado+'&apellido='+apellido,
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -146,7 +146,7 @@ function listarSocios(estado,apellido,callback){
 function registrarUnidades(registroUnidad,callback){
 	$.ajax({//la informacion lo genera el objeto ajax
 		method:'POST', // se pone para indicar a ajax q metodo vas a utilizar
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/unidades/',//'http://localhost:9000/unidades/', //se pone para hacer referencia al REST que va a procesar los datos / UnidadController
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/unidades/',//'http://localhost:9000/unidades/', //se pone para hacer referencia al REST que va a procesar los datos / UnidadController
 		data: JSON.stringify(registroUnidad),// para convertir en formato JSON los datos de unidad o procesar
 		processData:false,
 		contentType: "application/json; charset=utf-8",

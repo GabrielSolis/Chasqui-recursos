@@ -6,7 +6,7 @@ function listarPuntos(estado,callback){
 	$.ajax({
 		beforeSend: mostrarLoader(),
 		data:{estado:estado},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado='+estado,//'http://localhost:9000/puntos/?estado='+estado,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado='+estado,//'http://localhost:9000/puntos/?estado='+estado,
 		//url:'http://localhost:9000/puntos/',
 		processData:false,
 		headers:{

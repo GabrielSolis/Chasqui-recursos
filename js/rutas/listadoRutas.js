@@ -5,7 +5,7 @@ function listarRutas(estado,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		//data:{estado:estado},
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/'+estado,//'http://localhost:9000/rutas/'+estado,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/'+estado,//'http://localhost:9000/rutas/'+estado,
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -23,7 +23,7 @@ function modificarRuta(ruta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'PUT',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		data:JSON.stringify(ruta),
 		contentType: "application/json; charset=utf-8",
 		headers:{
@@ -50,7 +50,7 @@ function eliminarRuta(ruta,callback){
 		method:'delete',
 		data:JSON.stringify(ruta),
 		contentType: "application/json; charset=utf-8",
-		url:'http://localhost:9000/rutas/',
+		url:'https://localhost:9000/rutas/',
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",

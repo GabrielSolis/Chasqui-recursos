@@ -22,7 +22,7 @@ function agregarRuta(ruta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'POST',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		data:JSON.stringify(ruta),
 		contentType: "application/json; charset=utf-8",
 		headers: {
@@ -49,7 +49,7 @@ function agregarCalleRuta(ruta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'POST',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/'+Number(ruta.codigo),//'http://localhost:9000/rutas/'+Number(ruta.codigo),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/'+Number(ruta.codigo),//'http://localhost:9000/rutas/'+Number(ruta.codigo),
 		data:JSON.stringify(ruta),
 		contentType: "application/json; charset=utf-8",
 		headers: {
@@ -68,7 +68,7 @@ function eliminarCalleRuta(calleRuta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'DELETE',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/'+calleRuta.codigo,//'http://localhost:9000/rutas/'+calleRuta.codigo,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/'+calleRuta.codigo,//'http://localhost:9000/rutas/'+calleRuta.codigo,
 		data:JSON.stringify(calleRuta),
 		contentType: "application/json; charset=utf-8",
 		headers: {
@@ -87,7 +87,7 @@ function modificarCalle(calleRuta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'PUT',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/'+calleRuta.codigo,//'http://localhost:9000/rutas/'+calleRuta.codigo,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/'+calleRuta.codigo,//'http://localhost:9000/rutas/'+calleRuta.codigo,
 		data:JSON.stringify(calleRuta),
 		contentType: "application/json; charset=utf-8",
 		headers:{
@@ -105,7 +105,7 @@ function modificarCalle(calleRuta,callback){
 function listarRutas(callback){
 	$.ajax({
 		method:'GET',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token

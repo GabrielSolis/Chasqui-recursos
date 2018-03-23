@@ -5,7 +5,7 @@ function listarPuntos(callback){
 	$.ajax({
 		beforeSend: mostrarLoader(),
 		//url:'http://localhost:9000/puntos/?estado=R',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado=R',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado=R',
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -33,7 +33,7 @@ function modificarEstadoPunto(punto,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'PUT',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
 		data: JSON.stringify(punto),
 		contentType: "application/json; charset=utf-8",
 		processData:false,

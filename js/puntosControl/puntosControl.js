@@ -14,7 +14,7 @@ function registrarPunto(punto,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'POST',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
 		data: JSON.stringify(punto),
 		contentType: "application/json; charset=utf-8",
 		processData:false,
@@ -33,7 +33,7 @@ function registrarPunto(punto,callback){
 function listarPuntos(callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado=A',//'http://localhost:9000/puntos/?estado='+'A'
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado=A',//'http://localhost:9000/puntos/?estado='+'A'
 		headers:{
 			//"Content-Type":"application/json",
 			//"access-control-allow-origin":"*"
@@ -51,7 +51,7 @@ function eliminarPunto(punto,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'DELETE',
-		url: 'http://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
+		url: 'https://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
 		data: JSON.stringify(punto),
 		contentType: "application/json; charset=utf-8",
 		pprocessData:false,
@@ -69,7 +69,7 @@ function eliminarPunto(punto,callback){
 function modificarPunto(punto,callback){
 	$.ajax({
 		method:'PUT',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/',//'http://localhost:9000/puntos/',
 		data: JSON.stringify(punto),
 		contentType: "application/json; charset=utf-8",
 		pprocessData:false,

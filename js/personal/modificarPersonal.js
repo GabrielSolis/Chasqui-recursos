@@ -15,7 +15,7 @@ function listarPersonal(callback){
 		//beforeSend: function(){$("#modalCargando").modal('show')},
 		beforeSend: mostrarLoader(),
 		//url:'http://localhost:9000/personal/'+localStorage.getItem("idPersonal")
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/'+sessionStorage.getItem("idPersonal"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/'+sessionStorage.getItem("idPersonal"),
 		headers:{
 			"Authorization": "Bearer " + token8099
 		}

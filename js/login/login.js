@@ -17,7 +17,7 @@ $(document).ready(function () {
 		
 		$.ajax({
 					type: "POST",
-					url:  "http://chasqui-gateway.herokuapp.com/uaa/oauth/token",
+					url:  "https://chasqui-gateway.herokuapp.com/uaa/oauth/token",
 					contentType: "application/x-www-form-urlencoded",
 					dataType: "json",
 					
@@ -38,7 +38,7 @@ $(document).ready(function () {
 						}
 						$.ajax({
 							type: "POST",
-							url:  "http://chasqui-gateway.herokuapp.com/micro-client/usuario/login?access_token=" + token, //"https://mito-zuul-sp.herokuapp.com/micro-client/persona/leerCorreo/" + correo,
+							url:  "https://chasqui-gateway.herokuapp.com/micro-client/usuario/login?access_token=" + token, //"https://mito-zuul-sp.herokuapp.com/micro-client/persona/leerCorreo/" + correo,
 							contentType: "application/json; charset=utf-8",
 							data : JSON.stringify(usuarioLogin),
 							dataType: "json",		

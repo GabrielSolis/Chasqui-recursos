@@ -14,7 +14,7 @@ var map;
 function listarRutas(callback){
 	$.ajax({
 		method:'GET',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -30,7 +30,7 @@ function listarRutas(callback){
 function listarPuntos(callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado='+'A',//'http://localhost:9000/puntos/?estado='+'A',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/puntos/?estado='+'A',//'http://localhost:9000/puntos/?estado='+'A',
 		headers:{
 			"Authorization": "Bearer " + token
 		}
@@ -46,7 +46,7 @@ function modificarTiempoEstablecido(tiempoEstablecido,callback){
 		beforeSend:mostrarLoader(),
 		method:'PUT',
 		data:JSON.stringify(tiempoEstablecido),
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/',//'http://localhost:9000/tiempoEstablecido/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/',//'http://localhost:9000/tiempoEstablecido/',
 		headers:{
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -64,7 +64,7 @@ function eliminarTiempoEstablecido(tiempoEstablecido,callback){
 		beforeSend:mostrarLoader(),
 		method:'DELETE',
 		data:JSON.stringify(tiempoEstablecido),
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/',//'http://localhost:9000/tiempoEstablecido/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/',//'http://localhost:9000/tiempoEstablecido/',
 		headers:{
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -81,7 +81,7 @@ function listarTiempos(codigoRuta,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'GET',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/'+codigoRuta,//'http://localhost:9000/tiempoEstablecido/'+codigoRuta,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/'+codigoRuta,//'http://localhost:9000/tiempoEstablecido/'+codigoRuta,
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -97,7 +97,7 @@ function registrarTiempoEstablecido(tiempoEstablecido,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'POST',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/',//'http://localhost:9000/tiempoEstablecido/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/tiempoEstablecido/',//'http://localhost:9000/tiempoEstablecido/',
 		data:JSON.stringify(tiempoEstablecido),
 		headers: {
 			//"Content-Type":"application/json",

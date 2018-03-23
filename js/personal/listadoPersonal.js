@@ -16,7 +16,7 @@ function darBajaPersonal(personal,callback){
 		//url:'http://localhost:9000/personal/',
 		//url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/',
 		
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/',
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -39,7 +39,7 @@ function listarPersonales(estado,apellido,callback){
 		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
 		data:{estado:estado,apellido:apellido},
 		//url:'http://localhost:9000/personal/?estado='+estado+'&apellido='+apellido,
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/?estado='+estado+'&apellido='+apellido,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/?estado='+estado+'&apellido='+apellido,
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -57,7 +57,7 @@ function listarPersonal(callback){
 		beforeSend: mostrarLoader(),
 		contentType: "application/json; charset=utf-8",
 		//url:'http://localhost:9000/personal/'+sessionStorage.getItem("idPersonal")
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/'+sessionStorage.getItem("idPersonal"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/'+sessionStorage.getItem("idPersonal"),
 		headers:{
 			"Authorization": "Bearer " + token
 		}
