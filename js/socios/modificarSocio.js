@@ -8,6 +8,7 @@ function validarCampos(socio){
 	return true;
 }
 function listarSocio(callback){
+	console.log(token);
 	$.ajax({
 		beforeSend: function(){mostrarLoader();},
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),

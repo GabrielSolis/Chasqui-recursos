@@ -91,7 +91,7 @@ function registrarSocios(socio,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'POST',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/socios/',//'http://localhost:9000/socios/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/',//'http://localhost:9000/socios/',
 		data: JSON.stringify(socio),
 		contentType: "application/json; charset=utf-8",
 		
