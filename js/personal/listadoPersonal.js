@@ -52,12 +52,14 @@ function listarPersonales(estado,apellido,callback){
 
 ///Cargar datos de un socio
 function listarPersonal(callback){
+	console.log(token);
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
 		beforeSend: mostrarLoader(),
 		contentType: "application/json; charset=utf-8",
 		//url:'http://localhost:9000/personal/'+sessionStorage.getItem("idPersonal")
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/'+sessionStorage.getItem("idPersonal"),
+		
 		headers:{
 			"Authorization": "Bearer " + token
 		}

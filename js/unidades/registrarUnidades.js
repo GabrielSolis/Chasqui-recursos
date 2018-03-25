@@ -77,7 +77,7 @@ function listarUnidadesSocio(estado,callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
 		data:{estado:estado},
-		url:'https://chasqui-gateway.herokuapp.com/micro-client/registroUnidades/+localStorage.getItem("idSocio")'+'?/estado='+estado, //'http://localhost:9000/registroUnidades/'+localStorage.getItem("idSocio")+'?/estado='+estado,
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/registroUnidades/'+localStorage.getItem("idSocio")+'?/estado='+estado, //'http://localhost:9000/registroUnidades/'+localStorage.getItem("idSocio")+'?/estado='+estado,
 		headers:{
 			"Authorization": "Bearer " + token
 		}
