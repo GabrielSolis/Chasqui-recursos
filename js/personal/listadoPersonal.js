@@ -219,9 +219,9 @@ $(document).ready(function() {
 						{title:"Cargo",dataKey:"cargo"},
 						{title:"Estado",dataKey:"estado"}];
 		var data =[];
-		if(listaSocios.length >0){
-			for(var i=0;i<listaSocios.length;i++){
-				if(listaSocios[i].vigencia==true){
+		if(listaPersonal.length >0){
+			for(var i=0;i<listalistaPersonal.length;i++){
+				if(listaPersonal[i].vigencia==true){
 					 estado="Activo";
 				 }else{
 					 estado ="Retirado";
@@ -230,7 +230,7 @@ $(document).ready(function() {
 				data.push({
 					numero:i+1,
 					nombres:listaPersonal[i].nombres + " " + listaPersonal[i].apellidoPaterno + " " + listaPersonal[i].apellidoMaterno,
-					dni: listaSocios[i].dni,
+					dni: listaPersonal[i].dni,
 					cargo:listaPersonal[i].cargo,
 					estado:estado
 				});
@@ -281,8 +281,7 @@ $(document).ready(function() {
 			doc.text("Correo:",20,180);
 			doc.text("Cargo: ",20,200);
 			doc.setFontSize(13);
-			doc.text("Nombres y apellidos: ",20,235);
-			doc.text("Teléfono: ",20,255);
+			
 	
 			doc.setFontSize(13);
 			doc.setFont("helvetica");

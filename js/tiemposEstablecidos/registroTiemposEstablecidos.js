@@ -155,7 +155,7 @@ function initMap() {
     			vigencia:true
     	}
     	
-    	if( $('#txtTiempoModificar').val() !=0 && $('#txtOrdenModificar').val() !=0 ){
+    	if( $('#txtTiempo').val() !=0 && $('#txtOrden').val() !=0 ){
     		registrarTiempoEstablecido(tiempoEstablecido,function(respuesta){
         		$('#tituloRespuesta').text('Agregar tiempos a ruta');
         		$('#contenidoRespuesta').text(respuesta);

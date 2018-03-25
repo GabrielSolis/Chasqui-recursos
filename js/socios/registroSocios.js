@@ -47,7 +47,7 @@ function listarSocio(callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
 		beforeSend: mostrarLoader(),
-		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
 		headers:{
 			"Authorization": "Bearer " + token
 		}

@@ -3,7 +3,7 @@ var RUAntiguo;
 function listarRUnidad(callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
-		url:'https://chasqui-gateway.herokuapp.com/micro-client/unidades'+localStorage.getItem("idRegistroUnidad"),//'http://localhost:9000/unidades/'+localStorage.getItem("idRegistroUnidad"),
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/unidades/'+localStorage.getItem("idRegistroUnidad"),//'http://localhost:9000/unidades/'+localStorage.getItem("idRegistroUnidad"),
 		headers:{
 			"Authorization": "Bearer " + token
 		}
