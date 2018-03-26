@@ -13,6 +13,7 @@ var map;
 //Consumo de rest
 function listarRutas(callback){
 	$.ajax({
+		beforeSend: mostrarLoader(),
 		method:'GET',
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		processData:false,
@@ -155,7 +156,7 @@ function initMap() {
     			vigencia:true
     	}
     	
-    	if( $('#txtTiempo').val() !=0 && $('#txtOrden').val() !=0 ){
+    	if( Number($('#txtTiempo').val()) !=0 && Number($('#txtOrden').val()) !=0 ){
     		registrarTiempoEstablecido(tiempoEstablecido,function(respuesta){
         		$('#tituloRespuesta').text('Agregar tiempos a ruta');
         		$('#contenidoRespuesta').text(respuesta);

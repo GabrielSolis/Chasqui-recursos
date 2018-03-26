@@ -31,7 +31,7 @@ function modificarPersonal(personal,callback){
 		beforeSend: mostrarLoader(),
 		method:'PUT',
 		//url:'http://localhost:9000/personal/',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/',
 		contentType: "application/x-www-form-urlencoded",
 		data: JSON.stringify(personal),
 		statusCode:{

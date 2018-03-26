@@ -3,6 +3,7 @@ var RUAntiguo;
 function listarRUnidad(callback){
 	$.ajax({
 		//beforeSend: function(){$("#modalCargando").modal('show')},
+		beforeSend: mostrarLoader(),
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/unidades/'+localStorage.getItem("idRegistroUnidad"),//'http://localhost:9000/unidades/'+localStorage.getItem("idRegistroUnidad"),
 		headers:{
 			"Authorization": "Bearer " + token
@@ -27,6 +28,7 @@ function validarCampos(unidad){
 }
 function modificarUnidades(registroUnidad,estado,callback){
 	$.ajax({//la informacion lo genera el objeto ajax
+		beforeSend: mostrarLoader(),
 		method:'PUT', // se pone para indicar a ajax q metodo vas a utilizar
 		url: 'https://chasqui-gateway.herokuapp.com/micro-client/unidades/?estado='+estado,//'http://localhost:9000/unidades/?estado='+estado, //se pone para hacer referencia al REST que va a procesar los datos / UnidadController
 		data: JSON.stringify(registroUnidad),// para convertir en formato JSON los datos de unidad o procesar
