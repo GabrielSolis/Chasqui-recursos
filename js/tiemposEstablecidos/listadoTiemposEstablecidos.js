@@ -2,6 +2,7 @@ var listaTiempos = new Array();
 var listaRutas = new Array();
 function listarRutas(callback){
 	$.ajax({
+		beforeSend:mostrarLoader(),
 		method:'GET',
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',//'http://localhost:9000/rutas/',
 		processData:false,
@@ -11,6 +12,7 @@ function listarRutas(callback){
 	}).done(function(rutasRespuesta){
 		console.log(rutasRespuesta);
 		callback(rutasRespuesta);
+		ocultarLoader();
 	})
 }
 function listarTiempos(codigoRuta,callback){
