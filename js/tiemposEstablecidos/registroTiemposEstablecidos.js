@@ -23,6 +23,7 @@ function listarRutas(callback){
 	}).done(function(rutasRespuesta){
 		console.log(rutasRespuesta);
 		callback(rutasRespuesta);
+		ocultarLoader();
 	})
 }
 
