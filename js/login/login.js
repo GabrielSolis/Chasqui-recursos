@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#btnIngresar").click(function (e) {
    	     e.preventDefault();
-   	     mostrarLoader();
+   	     
 		let usuario = document.getElementById("txtUsuario").value;   
 		let clave = document.getElementById("txtClave").value;      
 		let claveHash = md5(clave);
@@ -17,6 +17,7 @@ $(document).ready(function () {
 		
 		$.ajax({
 					type: "POST",
+					beforeSend:mostrarLoader(),
 					url:  "https://chasqui-gateway.herokuapp.com/uaa/oauth/token",
 					//url:  "http://localhost:8099/uaa/oauth/token",
 					contentType: "application/x-www-form-urlencoded",

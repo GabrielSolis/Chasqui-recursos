@@ -168,9 +168,9 @@ $(document).ready(function() {
 			 }
 		 }else{
 			 if(estado="A"){
-				 $("#tipoRuta").text("activos");
-			 }else if(estado="R"){
-				 $("#tipoRuta").text("retirados");
+				 $("#tipoRuta").text("con servicio");
+			 }else if(estado="I"){
+				 $("#tipoRuta").text("sin servicio");
 			 }else{
 				 $("#tipoRuta").text("");
 			 }
