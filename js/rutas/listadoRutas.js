@@ -4,6 +4,7 @@ function listarRutas(estado,callback){
 
 	$.ajax({
 		beforeSend:mostrarLoader(),
+		method:'GET',
 		//data:{estado:estado},
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/'+estado,//'http://localhost:9000/rutas/'+estado,
 		headers: {

@@ -1,4 +1,5 @@
 var listaUsuarios = new Array();
+
 function listarUsuarios(estado,callback){
 	console.log(estado);
 	$.ajax({
@@ -19,11 +20,11 @@ function listarUsuarios(estado,callback){
 function mostrarUsuario(usuario,i){
 	var cuerpo = $("#cuerpoTablaUsuarios");
 	var estado;
-	
+
 	var contenidoFila = "";
-	
+
 	console.log(usuario.personal.cargo);
-	
+
 	if(usuario.estado == true){
 			estado ="Activo";
 			contenidoFila = "<td><button id='btnBaja"+usuario.codigo+"' onClick='darBaja("+usuario.codigo+")'class='btn btn-info mr-2'data-toggle='tooltip' data-placement='top' title='Dar de baja'>" +
@@ -37,7 +38,7 @@ function mostrarUsuario(usuario,i){
 	"<th>"+i+"</th>" +
 	"<td>"+usuario.usuario+"</td>" + "<td>"+usuario.personal.nombres  +" "+ usuario.personal.apellidoPaterno + " " + usuario.personal.apellidoMaterno + "</td><td>"+
 	 usuario.personal.cargo +"</td><td>"+estado+"</td>" + contenidoFila;
-	 		
+
 	cuerpo.append(contenidoFila);
 }
 function darBaja(valor){
@@ -47,7 +48,7 @@ function darBaja(valor){
 		backdrop:'static'
 	});
 	socioActual = {codigo:valor,estado:'R'}
-	
+
 }
 function darAlta(valor){
 	$('#mensajeAlta').text('¿Desea dar de alta al socio?');
@@ -67,16 +68,16 @@ $(document).ready(function() {
 	});
 	$("#btnListar").click(function(){
 	 	listaUsuarios.splice(0,listaUsuarios.length);
-		var estado = $("#filtrar").val();	
+		var estado = $("#filtrar").val();
 		$('tbody tr').remove();
 		listarUsuarios(estado,function(usuarios){
 		 if(usuarios.length > 0){
-			
+
 			 for(var i=0;i<usuarios.length;i++){
 				 listaUsuarios.push(usuarios[i]);
 				 mostrarUsuario(usuarios[i],(i+1));
-	
-				 $('[data-toggle="tooltip"]').tooltip(); 
+
+				 $('[data-toggle="tooltip"]').tooltip();
 			 }
 		 }else{
 			 if(estado="A"){
@@ -93,13 +94,12 @@ $(document).ready(function() {
 				 backdrop:'static'
 			 })
 		 }
-	
+
 	 });
 });
-	
+
 	});
 
 
-	
-	
-	
+
+

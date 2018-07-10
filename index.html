@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
      <script  src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="  crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <!--  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<link rel="stylesheet" href="css/login.css" type="text/css" media="all" /> 
+<link rel="stylesheet" href="css/login.css" type="text/css" media="all" />
+
 <script src="js/md5.js"></script>
-   <script src="js/utilidades.js"></script>
-<script src="js/login/login.js"></script> 
+<script src="js/utilidades.js"></script>
+<script src="js/login/login.js"></script>
 <title>Login</title>
 </head>
 <body>
@@ -21,20 +25,28 @@
 	<div class="container">
     <div class="row">
 		<div class="col-md-6 col-md-offset-6 centrar">
-    		<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title text-center">Login</h3>
+    		<div class="bordes panel panel-default">
+			  	<div class="margen1 panel-heading">
+			    	<h4 class="panel-title text-center">Sistema de registro de unidades y rutas</h4>
 			 	</div>
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form">
                     <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" id="txtUsuario" placeholder="Usuario" name="usuario" type="text">
+			    	  	 <div class="margen input-group">
+			    		    <span class="tamanio input-group-text"><i class="fas fa-user-lock"></i></span>
+			    		    <input class="form-control" id="txtUsuario" placeholder="Usuario" name="usuario" type="text" maxlength="16">
 			    		</div>
-			    		<div class="form-group">
-			    			<input class="form-control" id="txtClave" placeholder="Contraseña" name="password" type="password" value="">
+			    		 <div class="margen input-group">
+			    			<span class="tamanio input-group-text "><i class="fas fa-unlock-alt"></i></span>
+			    			<input class="form-control" id="txtClave" placeholder="Contraseña" name="password" type="password" value="" maxlength="16">
 			    		</div>
-			    		<input id="btnIngresar" class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+			    		<div class="margen">
+			    			<input id="btnIngresar" class="btn btn-lg btn-success btn-block" type="submit" value="Ingresar">
+			    		</div>
+						<div class="margen text-center">
+							<a id="linkRecuperar" class="link" href="#">Recuperar Contraseña</a>
+						</div>
+
 			    	</fieldset>
 			      	</form>
 			    </div>
@@ -42,5 +54,28 @@
 		</div>
 	</div>
 </div>
+<!--  Modal de respuestas -->
+   	  <div class="modal fade" id="modalRespuesta">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="tituloRespuesta">dsfdsfsdf</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="contenidoRespuesta">dsfdsfsdf</p>
+					<p id="contenidoRespuesta02"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btnExito"
+						data-dismiss="modal">Aceptar</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,8 +1,7 @@
 
     #map {
-    	
        height: 85%;
-  	   widtch:75%;
+  	   width: 75%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -14,7 +13,7 @@
       /* Optional: Makes the sample page fill the window. */
      
       #floating-panel {
-        position: absolute;
+        /*position: absolute;*/
         top: 20%;
         left: 10px;
         z-index: 5;
