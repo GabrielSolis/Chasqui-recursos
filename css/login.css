@@ -1,5 +1,36 @@
-body{padding-top:10%;}
+body{padding-top:10%;
+	background-color: #3383FF;
+	color: #fff;
+	font-family: inherit;
+}
 
 .centrar{
 	margin: 0 auto;
+}
+.tamanio{
+	width: 10%;
+}
+.margen{
+	margin-bottom: 20px;
+}
+.margen1{
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+.bordes{
+	border: 2px #33BEFF solid;
+	border-radius: 30px;
+	padding: 10px;
+}
+.link{
+	color:#fff;
+	font-family: inherit;
+}
+.link:hover{
+	font-size:20px;
+	color:#fff;
+	text-decoration: none;
+}
+#modalRespuesta{
+	color: black;
 }
