@@ -1,4 +1,6 @@
 var socioActual;
+var listaUnidadesActuales = new Array();
+var unidadesTrabajando = false;
 ////Dar de baja socio
 function darBajaSocio(socio,callback){
 	$.ajax({
@@ -41,7 +43,22 @@ function listarSocios(estado,apellido,callback){
 		callback(socios);
 	})
 }
+function listarUnidadesSocio(estado,idSocio,callback){
+	$.ajax({
+		//beforeSend: function(){$("#modalCargando").modal('show')},
+		data:{estado:estado},
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/registroUnidades/'+idSocio+'?/estado='+estado, //'http://localhost:9000/registroUnidades/'+localStorage.getItem("idSocio")+'?/estado='+estado,
+		headers:{
+			"Authorization": "Bearer " + token
+		}
 
+	}).done(function(socio){
+		console.log('unidades listadas: ' + JSON.stringify(socio));
+		//$("#modalCargando").modal('hide');
+		callback(socio);
+		
+	})
+}
 ///Cargar datos de un socio
 function listarSocio(callback){
 	$.ajax({
@@ -99,8 +116,13 @@ function registrarSocios(socio,callback){
 		statusCode:{
 			409:function(){
 				ocultarLoader();
-				alert("DNI no valido");
-			}
+				$("#tituloError").text("Error al registrar socio");
+				$("#contenidoRespuesta").text("El DNI escrito ya se encuentra registrado");
+					$("#modal1").modal({
+						show:true,
+						backdrop:'static'
+					});
+				}
 		},
 		headers: {
 			//"Content-Type":"application/json",
@@ -114,6 +136,24 @@ function registrarSocios(socio,callback){
 	})
 }
 
+function listarTarjetasActivas(codigoRU,callback){
+		$.ajax({
+		beforeSend: mostrarLoader(),
+		method:'get',
+		//data:JSON.stringify(tarjeta),
+		url: 'https://chasqui-gateway.herokuapp.com/micro-control/tarjeta/listar/'+codigoRU+'/'+cargarDiaActual()+'/'+cargarDiaActual(),//'http://localhost:9000/tarjeta/'+Number(tarjeta.codigoRegistroUnidad)+'/'+tarjeta.fecha,//'http://localhost:9000/unidades/',
+		headers: {
+			"Authorization": "Bearer " + token
+			//"Authorization": "Bearer " + token
+		},
+		contentType: "application/json; charset=utf-8",
+		processData:false
+	}).done(function(tarjetas){
+		ocultarLoader();
+		callback(tarjetas);
+		//console.log(registroUnidad);
+	});
+}
 function validarCampos(socio){
 	//|| socio.nombresPariente==""  || !validarTamanio($("#txtTelefonoPariente"),9
 	if(socio.nombres == "" || socio.apellidoPaterno == "" || socio.apellidoMaterno == ""
@@ -155,6 +195,21 @@ function darBaja(valor){
 	$('#modalBaja').modal({
 		show:true,
 		backdrop:'static'
+	});
+	listarUnidadesSocio('A',valor,function(unidades){
+		console.log(unidades);
+		if(unidades.length > 0){
+			listaUnidadesActuales = unidades;
+			for(var i=0;i<listaUnidadesActuales.length;i++){
+				listarTarjetasActivas(listaUnidadesActuales[i].codigo,function(respuesta){
+					console.log(respuesta);
+					if(respuesta.length != 0){
+						unidadesTrabajando = true;
+					}
+				});
+			}
+		}
+		
 	});
 	socioActual = {codigo:valor,estado:'R'}
 	
@@ -320,9 +375,9 @@ function limpiarCampos(){
 					 $('[data-toggle="tooltip"]').tooltip(); 
 				 }
 			 }else{
-				 if(estado="A"){
+				 if(estado=="A"){
 					 $("#tipoSocio").text("activos");
-				 }else if(estado="R"){
+				 }else if(estado=="R"){
 					 $("#tipoSocio").text("retirados");
 				 }else{
 					 $("#tipoSocio").text("");
@@ -393,13 +448,29 @@ function limpiarCampos(){
 	 });
 	 
 
+
 	 $('#btnModalBaja').click(function(){
-		 darBajaSocio(socioActual,function(respuesta){
+	 	console.log(unidadesTrabajando);
+	 	if(unidadesTrabajando){
+	 		$("#tituloError").text("Error al dar de baja socio");
+					$("#contenidoRespuesta").text("El socio posee unidades trabajando");
+					$("#modal1").modal({
+						show:true,
+						backdrop:'static'
+					});
+	 		$('#modalBaja').modal('toggle');
+	 				
+
+	 	}else{	 
+	 		 darBajaSocio(socioActual,function(respuesta){
 				console.log(respuesta);
 			});
 			$('#btnBaja'+socioActual.codigo).tooltip('hide');
 			$('#'+socioActual.codigo).remove();
 			$('#modalBaja').modal('hide');
+
+	 	}
+		
 	 });
 	 $('#btnModalAlta').click(function(){
 			darBajaSocio(socioActual,function(respuesta){

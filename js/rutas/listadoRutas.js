@@ -4,6 +4,7 @@ function listarRutas(estado,callback){
 
 	$.ajax({
 		beforeSend:mostrarLoader(),
+		method:'GET',
 		//data:{estado:estado},
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/'+estado,//'http://localhost:9000/rutas/'+estado,
 		headers: {
@@ -50,7 +51,7 @@ function eliminarRuta(ruta,callback){
 		method:'delete',
 		data:JSON.stringify(ruta),
 		contentType: "application/json; charset=utf-8",
-		url:'https://localhost:9000/rutas/',
+		url:'https://chasqui-gateway.herokuapp.com/micro-client/rutas/',
 		headers: {
 			//"Content-Type":"application/json",
 			//"Access-Control-Allow-Origin":"*",
@@ -146,6 +147,7 @@ function verDatos(codigo){
 	});
 }
 $(document).ready(function() {
+	mostrarLoader();
 	revisarSesion();
 	ocultarLoader();
 	$('#cerrarSesion').click(function(e){
@@ -156,6 +158,7 @@ $(document).ready(function() {
 	$("#btnListar").click(function(){
 	 	listaRutas.splice(0,listaRutas.length);
 		var estado = $("#filtrar").val();	
+		var estadoString;
 		$('tbody tr').remove();
 		listarRutas(estado,function(rutas){
 		 if(rutas.length > 0){
@@ -167,13 +170,18 @@ $(document).ready(function() {
 				 $('[data-toggle="tooltip"]').tooltip(); 
 			 }
 		 }else{
-			 if(estado="A"){
-				 $("#tipoRuta").text("con servicio");
-			 }else if(estado="I"){
-				 $("#tipoRuta").text("sin servicio");
+			 if(estado=="A"){
+				 //$("#tipoRuta").text("con servicio");
+				 estadoString="con servicio";
+			 }else if(estado=="I"){
+				 //$("#tipoRuta").text("sin servicio");
+				 estadoString = "sin servicio";
 			 }else{
-				 $("#tipoRuta").text("");
+				 //$("#tipoRuta").text("");
+				 estadoString = "";
 			 }
+			 $('#tituloRespuesta').text('Listado de ruts');
+			$('#cuerpoRespuesta').text( 'No hay rutas'+estado+' para listar');
 			 $("#modalListado").modal('show');
 		 }
 	
@@ -243,6 +251,7 @@ $(document).ready(function() {
 		 rutaActual.letra = $('#txtLetra').val();
 		 rutaActual.estado =$('#cmbEstado').val();
 		 console.log(rutaActual.letra + " " + rutaActual.estado);
+		 console.log(listaRutas);
 		 modificarRuta(rutaActual,function(){
 			$('#tituloRespuesta').text('Modificar ruta');
 			$('#cuerpoRespuesta').text('¡Ruta modificada exitosamente!');
@@ -270,6 +279,7 @@ $(document).ready(function() {
 	 });
 
 	 $('#btnEliminarRuta').click(function(e){
+	 	 var indice = buscarRuta(rutaActual.codigo);
 		 $('#modalEliminarRuta').modal('hide');
 		 eliminarRuta(rutaActual,function(){
 			 $('#tituloRespuesta').text('Eliminar ruta');
@@ -278,7 +288,25 @@ $(document).ready(function() {
 					show:true,
 					backdrop:'static'
 				});
+		 
+			if($('#filtrar').val() != ""){ //Si el filtro no es todos.
+			 $('#'+rutaActual.codigo).remove();	
+			 listaRutas.splice(indice,1); 
+		 }else{
+			 listaRutas.splice(0,listaRutas.length);
+				var estado = $("#filtrar").val();	
+				$('tbody tr').remove();
+				listarRutas(estado,function(rutas){
+					 console.log(rutas);
+					 for(var i=0;i<rutas.length;i++){
+						 listaRutas.push(rutas[i]);
+						 mostrarRuta(rutas[i],(i+1));
+						 $('[data-toggle="tooltip"]').tooltip(); 
+					 }
+				});
+		 }
 		 })
+
 	 });
 	 
 	 $("#btnImprimirRuta").click(function(e){

@@ -10,7 +10,7 @@ function validarCampos(socio){
 function listarSocio(callback){
 	
 	$.ajax({
-		beforeSend: function(){mostrarLoader();},
+		beforeSend: mostrarLoader(),
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/socios/'+localStorage.getItem("idSocio"),//'http://localhost:9000/socios/'+localStorage.getItem("idSocio"),
 		headers:{
 			"Authorization": "Bearer  " + token
@@ -32,7 +32,12 @@ function modificarSocio(socio,callback){
 		statusCode:{
 			409:function(){
 				ocultarLoader();
-				alert("DNI no valido");
+				$("#tituloError").text("Error al registrar socio")
+				$("#contenidoRespuesta").text("El DNI escrito ya se encuentra registrado");
+					$("#modal1").modal({
+						show:true,
+						backdrop:'static'
+					});
 			}
 		},
 		processData:false,
@@ -47,6 +52,7 @@ function modificarSocio(socio,callback){
 		ocultarLoader();
 	})
 }
+
 
 function llenarCampos(socio){
 	$("#txtNombres").val(socio.nombres);
@@ -84,8 +90,10 @@ function limpiarCampos(){
 	$("cmbEstadoCivil").val("");
 }
 $(document).ready(function() {
+	mostrarLoader();
 	revisarSesion();
 	ocultarLoader();
+	console.log(token);
 	$('#cerrarSesion').click(function(e){
 			e.preventDefault();
 			cerrarSesion();

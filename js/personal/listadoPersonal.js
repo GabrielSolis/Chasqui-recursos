@@ -195,9 +195,9 @@ $(document).ready(function() {
 					 $('[data-toggle="tooltip"]').tooltip(); 
 				 }
 			 }else{
-				 if(estado="A"){
+				 if(estado=="A"){
 					 $("#tipoPersonal").text("activos");
-				 }else if(estado="R"){
+				 }else if(estado=="R"){
 					 $("#tipoPersonal").text("retirados");
 				 }else{
 					 $("#tipoPersonal").text("");

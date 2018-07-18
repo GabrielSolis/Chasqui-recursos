@@ -56,6 +56,23 @@ function llenarCamposModal(unidades){
 	}
 	
 }
+function llenarCamposUnicaUnidadModal(unidades){
+	console.log(unidades);
+	var cuerpo = $("#cuerpo");
+	var contenidoFila = "";
+	cuerpo.text("");
+	$("#txtNombresCompletos").text(unidades[0].socio.nombres + " "+unidades[0].socio.apellidoPaterno + " "+unidades[0].socio.apellidoMaterno);
+	for(var i=0; i<unidades.length;i++){
+		
+		//contenidoFila = "<p><label>Placa: <span id=#txtPlaca></span>"+unidades[i].unidad.placa +"<button class='btn btn-primary' id='btnModificarUnidadSocio'>"+'Modificar'+"</button></label></p>";
+		contenidoFila = "<p><br><label>Vehículo "+[i+1]+" : <span id=#txtPlaca></span>"+unidades[i].unidad.placa +"<button  onClick='verDatosEspecificosUnidad("+unidades[i].socio.codigo+","+unidades[i].unidad.codigo+")' class='btn btn-info mr-2 ml-5'data-toggle='tooltip' data-placement='top' title='Visualizar datos de la Unidad'>"+"<i class='fas fa-eye'></i></button>"+"<button  onClick='modificar("+unidades[i].codigo+")'class='btn btn-info mr-2'data-toggle='tooltip' data-placement='top' title='Modificar datos'>"+
+		"<i class='fas fa-edit'></i></button>"+"</label></p>";
+		
+		//$("#txtPlaca").text(unidades[i].unidad.placa);
+		cuerpo.append(contenidoFila);
+	}
+	
+}
 
 
 function listarRUnidad(callback){
@@ -152,7 +169,13 @@ function registrarUnidades(registroUnidad,callback){
 		contentType: "application/json; charset=utf-8",
 		statusCode:{ 
 			409:function(){
-				alert("La placa del Vehiculo : " +registroUnidad.unidad.placa + "ya ha sido registrada");
+				ocultarLoader();
+				$("#tituloError").text("Error al registrar unidad");
+				$("#contenidoError").text("La placa del Vehiculo : " +registroUnidad.unidad.placa + " ya ha sido registrada");
+					$("#modalError").modal({
+						show:true,
+						backdrop:'static'
+					});
 			}
 		},
 		headers: {
@@ -204,8 +227,7 @@ function validarCampos(unidad){
 
 
 //mostrar la lista de unidades, con su soco en la listaUnidades.html Otra opcion
-function mostrarRegistroUnidades(unidades){
-	var i=1;
+function mostrarRegistroUnidades(unidades,i){
 	var cuerpo = $("#cuerpoTablaUnidades");
 	var estado;
 	var contenidoFila = "";
@@ -226,7 +248,7 @@ function mostrarRegistroUnidades(unidades){
 	}
 	if(unidades.nombreCompleto != null){
 		var contenidoFila = "<tr id='"+unidades.codigoSocio+"'>" +
-		"<th>"+i+"</th>" +
+		"<th>"+(i+1)+"</th>" +
 		"<td>"+unidades.nombreCompleto+"</td>" +
 		"<td>"+unidades.placas+"</td> <td>"+estado+"</td>" +
 			"<td><button id='btnVer' onClick='verDatos("+unidades.codigoSocio+")' class='btn btn-info mr-2'data-toggle='tooltip' data-placement='top' title='Visualizar datos'>" +
@@ -235,7 +257,6 @@ function mostrarRegistroUnidades(unidades){
 	 		
 	cuerpo.append(contenidoFila);
 
-	i++;
 }
 
 //mostrar socio en el combo del registro Unidad . html
@@ -343,7 +364,12 @@ function verDatos(valor){
 	localStorage.setItem("idSocio",valor);
 	listarUnidadesSocio(estado,function (unidades){
 		
-		llenarCamposModal(unidades);
+		
+		if(unidades.length == 1){
+			llenarCamposUnicaUnidadModal(unidades);
+		}else{
+			llenarCamposModal(unidades);
+		}
 		for(var i=0;i<unidades.length;i++){
 			listarRUnidades.push(unidades[i]);
 		}
@@ -485,7 +511,7 @@ $(document).ready(function(){//cuando la pagina carge se hara todo lo q esta aqu
 					 if(registroUnidades[i].nombreCompleto != null){
 						 bandera=bandera+1;
 						 listarRUnidades.push(registroUnidades[i]);
-						 mostrarRegistroUnidades(registroUnidades[i]);
+						 mostrarRegistroUnidades(registroUnidades[i],i);
 			
 						 $('[data-toggle="tooltip"]').tooltip(); 
 					 }

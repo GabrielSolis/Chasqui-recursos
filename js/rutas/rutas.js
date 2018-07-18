@@ -170,7 +170,7 @@ function listarRutas(callback){
         $("#btnModalAgregarRuta").click(function(){
         	$("#modalAgregarRuta").modal('hide');
         	var letra = $("#txtLetra").val();
-        	var ruta = {letra:letra,estado:'A',tiempo:0,vigencia:true};
+        	var ruta = {letra:letra.toUpperCase(),estado:'A',tiempo:0,vigencia:true};
         	agregarRuta(ruta,function(respuesta){
         		$('#tituloRespuesta').text('Agregar ruta');
         		$('#contenidoRespuesta').text('Ruta agregada exitosamente');

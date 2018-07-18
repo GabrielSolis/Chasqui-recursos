@@ -3,7 +3,7 @@ function registrarUsuario(usuario,callback){
 	$.ajax({
 		beforeSend:mostrarLoader(),
 		method:'POST',
-		url:'http://chasqui-gateway.herokuapp.com/micro-client/usuario/',//'http://localhost:9000/usuario/',
+		url:'http://chasqui-gateway.herokuapp.com/micro-client/usuario/',//'http://localhost:9000/tarjeta/',
 		data:JSON.stringify(usuario),
 		contentType: "application/json; charset=utf-8",
 		headers: {
@@ -16,7 +16,7 @@ function registrarUsuario(usuario,callback){
 		callback(respuesta);
 		ocultarLoader();
 	})
-}
+};
 
 
 function generarUsuario(codigoPersonal){
