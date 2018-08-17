@@ -323,6 +323,7 @@ function limpiarCampos(){
 		 e.preventDefault();
 		 var url  = generarReporteGeneral();
 		 if(url != undefined){
+		 	console.log(url);
 		 	nuevaVentanaReporte(url);
 		 }
 	 });
