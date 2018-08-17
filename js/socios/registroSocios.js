@@ -321,6 +321,7 @@ function limpiarCampos(){
 	 ///Imprimir lista de socios
 	 $("#btnImprimir").click(function(e){
 		 e.preventDefault();
+		 alert("Si cambio");
 		 var url  = generarReporteGeneral();
 		 if(url != undefined){
 		 	console.log(url);
