@@ -8,15 +8,16 @@
   crossorigin="anonymous"></script>
 
       	<link rel="stylesheet" href="../../css/menuNavegacion.css" type="text/css" media="all" />
-     	<script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+     	<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.4/jspdf.plugin.autotable.js"></script>
            <script src="../../js/utilidades.js"></script>  
         <script src="../../js/personal/listadoPersonal.js"></script>  
           <script src="../../js/usuario/registroUsuario.js"></script> 
+         
         <title>Listado de Personal | Chasqui S.A. </title>
     </head>
 <body>
@@ -103,7 +104,11 @@
 						<button  id="btnImprimir" class="btn btn-info mr-2"data-toggle="tooltip" data-placement="top" title="Imprimir datos">
 					<i class='fas fa-print'></i></button>
 					</div>
-					
+					<div class="col-sm-1">
+						<label for="imprimir">Descargar</label>
+						<button  id="btnDescargarG" class="btn btn-info mr-2"data-toggle="tooltip" data-placement="top" title="Descargar reporte">
+					<i class='fas fa-print'></i></button>
+					</div>
 				   				  
 				 </div>
 				 <div class="row form-group">

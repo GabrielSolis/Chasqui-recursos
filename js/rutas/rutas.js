@@ -299,7 +299,7 @@ function listarRutas(callback){
  
  function agregarPuntoMapa(e){
 		//Validamos que este dentro del rango
-		if(e.latLng.lat()>-6.904088 && e.latLng.lat()< -6.715980 && e.latLng.lng()>-79.900677 && e.latLng.lng() <  -79.812047){
+		/*if(e.latLng.lat()>-6.904088 && e.latLng.lat()< -6.715980 && e.latLng.lng()>-79.900677 && e.latLng.lng() <  -79.812047){*/
 			convertirPunto(e.latLng.lat(),e.latLng.lng());
 			//conseole.log(direccion);
 			setTimeout(function(){
@@ -322,11 +322,11 @@ function listarRutas(callback){
 				}
 
 			},1000);
-		}else{
+		/*}else{
 			$("#tituloRespuesta").text('Error al agregar punto de control');
 	    	$('#contenidoRespuesta').text('No se puede agregar un nuevo punto de control fuera de chiclayo');
 			$('#modalRespuesta').modal('show');
-		}	
+		}*/	
 	}
  
 ///Método para geocodificación inversa, obtenemos la direción a partir de la posición

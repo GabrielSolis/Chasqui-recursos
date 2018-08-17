@@ -15,7 +15,7 @@ function darBajaPersonal(personal,callback){
 		data:JSON.stringify(personal),
 		//url:'http://localhost:9000/personal/',
 		//url:'http://chasqui-gateway.herokuapp.com/micro-client/personal/',
-		
+		dataType:'blob',
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/',
 		headers: {
 			//"Content-Type":"application/json",
@@ -31,15 +31,37 @@ function darBajaPersonal(personal,callback){
 
 
 
-/// cargar socios
+////
 function listarPersonales(estado,apellido,callback){
 	console.log(estado + " " + apellido);
 	$.ajax({
 		beforeSend:mostrarLoader(),
-		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
 		data:{estado:estado,apellido:apellido},
+		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
 		//url:'http://localhost:9000/personal/?estado='+estado+'&apellido='+apellido,
 		url:'https://chasqui-gateway.herokuapp.com/micro-client/personal/?estado='+estado+'&apellido='+apellido,
+		
+		processData:false,
+		headers:{
+			"Authorization": "Bearer " + token
+		}
+	}).done(function(personal){
+		ocultarLoader();
+		callback(personal);
+	})
+}
+
+/// cargar socios
+function listarPersonalesJS(estado,apellido,callback){
+	console.log(estado + " " + apellido);
+	$.ajax({
+		beforeSend:mostrarLoader(),
+		/*beforeSend: function(){$("#modalCargando").modal('show')},*/
+		
+		//url:'http://localhost:9000/personal/?estado='+estado+'&apellido='+apellido,
+		contentType: 'application/json',
+		url:'http://localhost:8080/personal/listadoPersonal/reporte/'+estado+'/'+apellido,
+		responseType:'blob',
 		processData:false,
 		headers:{
 			"Authorization": "Bearer " + token
@@ -151,6 +173,7 @@ function verDatos(valor){
   $("#modalPersonal").modal('show');
 }
 $(document).ready(function() {
+	console.log(token);
 	 revisarSesion();	
 	 ocultarLoader();
 
@@ -207,7 +230,28 @@ $(document).ready(function() {
 
 		 });
 	 });
+
 	 
+	  $("#btnImprimirJR").click(function(e){
+	  	e.preventDefault();
+	  	listarPersonalesJS('A','solis',function(respuesta){
+	  		console.log(respuesta);
+	  		//var binaryData = [];
+			//binaryData.push(respuesta);
+			//console.log(binaryData);
+			//var url = window.URL.createObjectURL(new Blob(binaryData, {type: "application/pdf"}))
+	  		 var url = window.URL.createObjectURL(respuesta);
+	  		var a = document.createElement('a');
+	  		a.setAttribute('style','display:none;');
+	  		document.body.appendChild(a);
+	  		a.href=url;
+	  		console.log(url);
+	  		a.download = 'archivo.pdf';
+	  		a.click();
+	  		return url;
+	  	});
+	  	
+	  });
 	 $("#btnImprimir").click(function(e){
 		 e.preventDefault();
 	
@@ -220,13 +264,13 @@ $(document).ready(function() {
 						{title:"Estado",dataKey:"estado"}];
 		var data =[];
 		if(listaPersonal.length >0){
-			for(var i=0;i<listalistaPersonal.length;i++){
+			for(var i=0;i<listaPersonal.length;i++){
 				if(listaPersonal[i].vigencia==true){
 					 estado="Activo";
 				 }else{
 					 estado ="Retirado";
 				 }
-				console.log(listaPersonall[i]);
+				console.log(listaPersonal[i]);
 				data.push({
 					numero:i+1,
 					nombres:listaPersonal[i].nombres + " " + listaPersonal[i].apellidoPaterno + " " + listaPersonal[i].apellidoMaterno,
@@ -238,7 +282,8 @@ $(document).ready(function() {
 			doc.text("Lista de personal",85,40);
 			doc.line(80, 41, 130, 41);
 			doc.autoTable(columnas,data,{margin:{top:55}});
-			doc.output('dataurlnewwindow'); //
+			
+			//doc.output('dataurlnewwindow'); //
 			//doc.output('save', 'filename.pdf');
 			//doc.save('mipdf.pdf');
 		}else{

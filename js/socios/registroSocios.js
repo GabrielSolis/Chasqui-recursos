@@ -117,7 +117,7 @@ function registrarSocios(socio,callback){
 			409:function(){
 				ocultarLoader();
 				$("#tituloError").text("Error al registrar socio");
-				$("#contenidoRespuesta").text("El DNI escrito ya se encuentra registrado");
+				$("#mensajeError").text("El DNI escrito ya se encuentra registrado");
 					$("#modal1").modal({
 						show:true,
 						backdrop:'static'
@@ -321,42 +321,12 @@ function limpiarCampos(){
 	 ///Imprimir lista de socios
 	 $("#btnImprimir").click(function(e){
 		 e.preventDefault();
-	
-		var doc = new jsPDF();
-		
-		var columnas = [{title:"Numero", dataKey:"numero"},
-						{title:"Nombres y Apellidos",dataKey:"nombres"},
-						{title:"DNI",dataKey:"dni"},
-						{title:"Numero de acciones",dataKey:"numeroAcciones"},
-						{title:"Estado",dataKey:"estado"}];
-		var data =[];
-		if(listaSocios.length >0){
-			for(var i=0;i<listaSocios.length;i++){
-				if(listaSocios[i].estado=='A'){
-					 estado="Activo";
-				 }else{
-					 estado ="Retirado";
-				 }
-				console.log(listaSocios[i]);
-				data.push({
-					numero:i+1,
-					nombres:listaSocios[i].nombres + " " + listaSocios[i].apellidoPaterno + " " + listaSocios[i].apellidoMaterno,
-					dni: listaSocios[i].dni,
-					numeroAcciones:listaSocios[i].numeroAcciones,
-					estado:estado
-				});
-			}
-			doc.text("Lista de socios",85,40);
-			doc.line(80, 41, 130, 41);
-			doc.autoTable(columnas,data,{margin:{top:55}});
-			doc.output('dataurlnewwindow'); //
-			//doc.output('save', 'filename.pdf');
-			//doc.save('mipdf.pdf');
-		}else{
-			alert("No hay socios listados");
-		}
-		
+		 var url  = generarReporteGeneral();
+		 if(url != undefined){
+		 	nuevaVentanaReporte(url);
+		 }
 	 });
+	
 	 $("#btnListar").click(function(){
 		 	listaSocios.splice(0,listaSocios.length);
 			var estado = $("#filtrar").val();
@@ -441,13 +411,20 @@ function limpiarCampos(){
 			doc.text($("#txtNumeroAcciones").text(),80,200)
 			doc.text($("#txtNombresPariente").text(),80,235);
 			doc.text($("#txtTelefonoPariente").text(),50,255);	
-			doc.output('dataurlnewwindow');
-	
-		
+			//doc.save('socio.pdf');
+			var url = doc.output('datauristring'); 
+			nuevaVentanaReporte(url);
+			/*var win = window.open(url);
+
+		     //win.document.write('<iframe src="' + url + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
+			var a = document.createElement('a');
+			console.log(url);
+			a.href=url;
+			a.click();*/	
 		
 	 });
 	 
-
+	
 
 	 $('#btnModalBaja').click(function(){
 	 	console.log(unidadesTrabajando);
@@ -481,5 +458,53 @@ function limpiarCampos(){
 			$('#modalAlta').modal('hide');
 	 });
 	 
-	 
+
+	 function generarReporteGeneral(){
+
+	 	var doc = new jsPDF();
+	 	var pdf = new jsPDF();
+		var img = new Image;
+		img.onload = function() {
+		    pdf.addImage(this, 10, 10);
+		    pdf.save("test.pdf");
+		};
+		img.crossOrigin = "undefined";  // for demo as we are at different origin than image
+		img.src = "../../img/logo.jpg"; 
+		
+		var columnas = [{title:"Numero", dataKey:"numero"},
+						{title:"Nombres y Apellidos",dataKey:"nombres"},
+						{title:"DNI",dataKey:"dni"},
+						{title:"Numero de acciones",dataKey:"numeroAcciones"},
+						{title:"Estado",dataKey:"estado"}];
+		var data =[];
+		if(listaSocios.length >0){
+			for(var i=0;i<listaSocios.length;i++){
+				if(listaSocios[i].estado=='A'){
+					 estado="Activo";
+				 }else{
+					 estado ="Retirado";
+				 }
+				console.log(listaSocios[i]);
+				data.push({
+					numero:i+1,
+					nombres:listaSocios[i].nombres + " " + listaSocios[i].apellidoPaterno + " " + listaSocios[i].apellidoMaterno,
+					dni: listaSocios[i].dni,
+					numeroAcciones:listaSocios[i].numeroAcciones,
+					estado:estado
+				});
+			}
+			doc.text("Lista de socios",85,40);
+			doc.line(80, 41, 130, 41);
+			doc.autoTable(columnas,data,{margin:{top:55}});
+			//console.log(dataurlnewwindow);
+			//doc.output('dataurlnewwindow'); //
+			var url = doc.output('datauristring'); 
+			return url;
+			//nuevaVentanaReporte(url);
+			//doc.output('save', 'filename.pdf');
+			//doc.save('mipdf.pdf');
+		}else{
+			alert("No hay socios listados");
+		}
+	 }
  });
